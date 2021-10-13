@@ -1,9 +1,4 @@
-import {
-  render,
-  screen,
-  fireEvent,
-  waitForElementToBeRemoved,
-} from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Counter from "./Counter";
 import user from "@testing-library/user-event";
 
