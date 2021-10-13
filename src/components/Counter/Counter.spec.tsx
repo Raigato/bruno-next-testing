@@ -17,14 +17,15 @@ describe("Counter", () => {
     });
 
     describe("when + is clicked", () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         fireEvent.click(
           screen.getByRole("button", { name: "Increment Counter" })
         );
+        await screen.findByText("Current Count: 1");
       });
 
-      it("renders Current Count: 1", async () => {
-        expect(await screen.findByText("Current Count: 1")).toBeInTheDocument();
+      it("renders Current Count: 1", () => {
+        expect(screen.getByText("Current Count: 1")).toBeInTheDocument();
       });
     });
 
@@ -65,10 +66,8 @@ describe("Counter", () => {
           await screen.findByText("Current Count: 15");
         });
 
-        it("renders Current Count: 15", async () => {
-          expect(
-            await screen.findByText("Current Count: 15")
-          ).toBeInTheDocument();
+        it("renders Current Count: 15", () => {
+          expect(screen.getByText("Current Count: 15")).toBeInTheDocument();
         });
 
         describe("when the incrementor changes to empty string and + button is clicked", () => {
